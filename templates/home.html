@@ -4,48 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xexta Careers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
-        h1 {
-            font-size: 40px;
-            text-align: center;
-            font-family: Roboto;
-            font-weight: normal;
-            color: rgb(100, 100, 100);
-        }
-
         #banner {
-            width: 100%;
             height: 360px;
             object-fit: cover;
-        }
-
-        h2 {
-            font-family: Roboto;
-            font-size: 32px;
-            color: rgb(100, 100, 100);
-            text-align: center;
-            font-weight: normal;
-        }
-
-        p .dodytext{
-            font-family: Roboto;
-            color: rgb(80, 80, 80);
-        }
-
-        #container {
-            max-width: 720px;
-            margin: 0 auto;
+            width: 100%;
         }
     </style>
+    <title>Xexta Careers</title>
 </head>
 
 <body>
-    <div id="container">
-        <h1>Xexta Careers</h1>
-        <img id="banner" src="http://127.0.0.1:5000/static/banner.jpg">
-        <h2>About Xexta</h2>
-        <p class="bodytext">
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
+        <img class="img-fluid" id="banner" src="http://127.0.0.1:5000/static/banner.jpg">
+        <h2 class="text-center mt-2 mb-4">About Xexta</h2>
+        <p class="lead">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium suscipit quis,
             modi placeat fugiat nesciuntnemo eos, soluta harum dolore nihil reiciendis libero
             adipisci unde itaque animi laboriosam explicabo quam? Lorem ipsum dolor sit amet
@@ -53,11 +29,15 @@
             a sed veniam dignissimos assumenda nisi blanditiis praesentium ad consectetur ullam
             accusamus qui, quasi culpa. Eius.
         </p>
-        <h2>Open Positions</h2>
-        <p class="bodytext">TODO- Show the jobs here</p>
-        <div style="text-align: center;">
-            <button>Contact Us</button>
-            <p>Copyright 2025, Xexta</p>
+        <h2 class="text-center">Open Positions</h2>
+        <div>
+            {% for job in jobs %}
+                {% include 'jobitem.html' %}
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-large">Contact Us</button>
+            <p class="mt-4">Copyright 2025, Xexta</p>
         </div>
     </div>
 </body>
